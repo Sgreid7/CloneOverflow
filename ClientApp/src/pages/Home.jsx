@@ -29,4 +29,8 @@ const HeaderSection = styled.header`
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  background: #ffcf10;
+
+  h1 {
+  }
 `
