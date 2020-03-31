@@ -20,6 +20,7 @@ export class NavMenu extends Component {
     this.toggleNavbar = this.toggleNavbar.bind(this)
     this.state = {
       collapsed: true,
+      search: '',
     }
   }
 
@@ -48,13 +49,8 @@ export class NavMenu extends Component {
             >
               <ul className="navbar-nav flex-grow">
                 <NavItem>
-                  <NavLink tag={Link} className="text-dark" to="/questions">
-                    Questions
-                  </NavLink>
-                </NavItem>
-                <NavItem>
-                  <NavLink className="text-dark">
-                    <input type="search" placeholder="Search..." />
+                  <NavLink tag={Link} className="text-dark" to="/search">
+                    Have a question?
                   </NavLink>
                 </NavItem>
               </ul>
