@@ -5,34 +5,33 @@ import { faArrowUp } from '@fortawesome/free-solid-svg-icons'
 import { faArrowDown } from '@fortawesome/free-solid-svg-icons'
 import styled from 'styled-components'
 
-const Question = ({ question }) => {
+const Answer = () => {
   const [score, setScore] = useState(0)
 
   const sendScoreToApi = async () => {
-    const resp = await axios.post(`/api/question/${question.id}/score`, {
+    const resp = await axios.post(`/api/answer/${answer.id}/score`, {
       score: score,
     })
   }
 
   return (
-    <QuestionSection>
+    <AnswerSection>
       <div>
         <button onClick={() => setScore(score + 1)}>
           <FontAwesomeIcon icon={faArrowUp} />
         </button>
-        <p>{question.score}</p>
+        <p>{answer.score}</p>
         <button onClick={() => setScore(score - 1)}>
           <FontAwesomeIcon icon={faArrowDown} />
         </button>
       </div>
-      <h2>{question.title}</h2>
       <p>{question.content}</p>
-    </QuestionSection>
+    </AnswerSection>
   )
 }
 
-export default Question
+export default Answer
 
-const QuestionSection = styled.div`
+const AnswerSection = styled.section`
   border: 0.1rem solid #696969;
 `

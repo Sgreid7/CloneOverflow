@@ -6,7 +6,16 @@ const QuestionsList = ({ results }) => {
       {results.map(question => {
         return (
           <li>
-            <div>{question.score}</div>
+            <section>
+              <div>
+                {question.score}
+                <p>votes</p>
+              </div>
+              <div>
+                {question.answer}
+                <p>answers</p>
+              </div>
+            </section>
             <h3>{question.title}</h3>
             <p>{question.content}</p>
           </li>
