@@ -8,7 +8,11 @@ const Search = () => {
   const [results, setResults] = useState([])
 
   const searchQuestions = async () => {
-    // const responses = await axios.get(`/api/question`)
+    const resp = await axios.get(
+      `/api/search/question?searchTerm=${searchTerm}`
+    )
+    console.log(resp.data)
+    setResults(resp.data)
   }
 
   return (
@@ -21,7 +25,7 @@ const Search = () => {
           value={searchTerm}
           onChange={e => setSearchTerm(e.target.value)}
         />
-        <button>Search</button>
+        <button onClick={searchQuestions}>Search</button>
       </SearchSection>
       <EmptySearchResult />
     </>
