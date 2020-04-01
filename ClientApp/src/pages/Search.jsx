@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import axios from 'axios'
 import EmptySearchResult from '../components/EmptySearchResults'
+import QuestionsList from '../components/QuestionsList'
 import styled from 'styled-components'
 
 const Search = () => {
@@ -12,7 +13,7 @@ const Search = () => {
       const resp = await axios.get(
         `/api/search/question?searchTerm=${searchTerm}`
       )
-      console.log(resp.data)
+      // console.log(resp.data)
       setResults(resp.data)
     } else {
       setResults([])
@@ -31,7 +32,13 @@ const Search = () => {
         />
         <button onClick={searchQuestions}>Search</button>
       </SearchSection>
-      <EmptySearchResult />
+      <main>
+        {results.length > 0 ? (
+          <QuestionsList results={results} />
+        ) : (
+          <EmptySearchResult />
+        )}
+      </main>
     </>
   )
 }

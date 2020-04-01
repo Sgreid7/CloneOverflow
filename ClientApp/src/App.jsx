@@ -2,9 +2,9 @@ import React, { Component } from 'react'
 import { Route, Switch } from 'react-router'
 import { Layout } from './components/Layout'
 import { Home } from './pages/Home'
+import Search from './pages/Search'
 // import { NotFound } from './pages/NotFound'
 import './custom.scss'
-import Search from './pages/Search'
 export default class App extends Component {
   static displayName = App.name
 
