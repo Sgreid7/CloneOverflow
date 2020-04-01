@@ -15,7 +15,15 @@ const Question = ({ question }) => {
 
   return (
     <section>
-      <div>{question.score}</div>
+      <div>
+        <button>
+          <FontAwesomeIcon icon={faArrowUp} />
+        </button>
+        <p>{question.score}</p>
+        <button>
+          <FontAwesomeIcon icon={faArrowDown} />
+        </button>
+      </div>
       <h2>{question.title}</h2>
       <p>{question.content}</p>
     </section>
