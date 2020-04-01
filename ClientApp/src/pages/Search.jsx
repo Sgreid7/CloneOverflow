@@ -8,11 +8,15 @@ const Search = () => {
   const [results, setResults] = useState([])
 
   const searchQuestions = async () => {
-    const resp = await axios.get(
-      `/api/search/question?searchTerm=${searchTerm}`
-    )
-    console.log(resp.data)
-    setResults(resp.data)
+    if (searchTerm) {
+      const resp = await axios.get(
+        `/api/search/question?searchTerm=${searchTerm}`
+      )
+      console.log(resp.data)
+      setResults(resp.data)
+    } else {
+      setResults([])
+    }
   }
 
   return (
