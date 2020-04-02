@@ -32,7 +32,7 @@ const Search = () => {
         />
         <button onClick={searchQuestions}>Search</button>
       </SearchSection>
-      <main>
+      <main className="question-list">
         {results.length > 0 ? (
           <QuestionsList results={results} />
         ) : (
