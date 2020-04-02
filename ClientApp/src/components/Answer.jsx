@@ -1,8 +1,8 @@
 import React, { useState } from 'react'
 import axios from 'axios'
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faArrowUp } from '@fortawesome/free-solid-svg-icons'
-import { faArrowDown } from '@fortawesome/free-solid-svg-icons'
+// import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+// import { faArrowUp } from '@fortawesome/free-solid-svg-icons'
+// import { faArrowDown } from '@fortawesome/free-solid-svg-icons'
 import styled from 'styled-components'
 
 const Answer = ({ answer }) => {
@@ -18,11 +18,13 @@ const Answer = ({ answer }) => {
     <AnswerSection>
       <div>
         <button onClick={(() => setScore(score + 1), { sendScoreToApi })}>
-          <FontAwesomeIcon icon={faArrowUp} />
+          {/* <FontAwesomeIcon icon={faArrowUp} /> */}
+          upvote
         </button>
         <p>{answer.score}</p>
         <button onClick={(() => setScore(score - 1), { sendScoreToApi })}>
-          <FontAwesomeIcon icon={faArrowDown} />
+          {/* <FontAwesomeIcon icon={faArrowDown} /> */}
+          downvote
         </button>
       </div>
       <p>{answer.content}</p>
