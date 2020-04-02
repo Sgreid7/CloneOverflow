@@ -17,11 +17,11 @@ const Answer = () => {
   return (
     <AnswerSection>
       <div>
-        <button onClick={() => setScore(score + 1)}>
+        <button onClick={(() => setScore(score + 1), sendScoreToApi())}>
           <FontAwesomeIcon icon={faArrowUp} />
         </button>
         <p>{answer.score}</p>
-        <button onClick={() => setScore(score - 1)}>
+        <button onClick={(() => setScore(score - 1), sendScoreToApi())}>
           <FontAwesomeIcon icon={faArrowDown} />
         </button>
       </div>
