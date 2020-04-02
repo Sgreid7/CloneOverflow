@@ -57,7 +57,7 @@ const AskQuestion = () => {
           <section>
             <label htmlFor="description">Description</label>
             <textarea
-              name="description"
+              name="content"
               placeholder="Include all the information someone would need to answer your
               question"
               cols="50"

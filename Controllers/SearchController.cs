@@ -25,7 +25,7 @@ namespace CloneOverflow.Controllers
         [HttpGet("question")]
         public async Task<ActionResult<Answer>> SearchQuestions(string searchTerm)
         {
-            var results = _context.Questions.Where(q => q.Content.ToLower().Contains(searchTerm.ToLower()));
+            var results = _context.Questions.Where(q => q.Content.ToLower().Contains(searchTerm.ToLower()) || q.Title.ToLower().Contains(searchTerm.ToLower()));
             return Ok(await results.ToListAsync());
         }
     }
