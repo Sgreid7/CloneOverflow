@@ -5,6 +5,7 @@ import axios from 'axios'
 // import { faArrowDown } from '@fortawesome/free-solid-svg-icons'
 import styled from 'styled-components'
 import Answer from './Answer'
+import PostAnswer from './PostAnswer'
 
 const Question = ({ question }) => {
   const [score, setScore] = useState(0)
@@ -19,7 +20,7 @@ const Question = ({ question }) => {
     <>
       <header>
         <h2>Q: {question.title}</h2>
-        <p>Asked: {question.datecreated}</p>
+        <p>Asked: 4/2/2020</p>
       </header>
       <QuestionSection>
         <div>
@@ -70,6 +71,7 @@ const Question = ({ question }) => {
           </li>
         </ul>
       </AnswerSection>
+      <PostAnswer />
     </>
   )
 }

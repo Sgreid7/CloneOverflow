@@ -1,0 +1,49 @@
+import React from 'react'
+import styled from 'styled-components'
+import axios from 'axios'
+
+const PostAnswer = () => {
+  return (
+    <AnswerField>
+      <h2>Your Answer</h2>
+      <textarea name="content" cols="30" rows="5"></textarea>
+      <div>
+        <button>Post Your Answer</button>
+      </div>
+    </AnswerField>
+  )
+}
+
+export default PostAnswer
+
+const AnswerField = styled.section`
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: 1rem;
+
+  textarea {
+    width: 100%;
+    margin-bottom: 0.5rem;
+    :focus {
+      outline: none;
+      border: 0.05rem solid #000;
+    }
+  }
+
+  button {
+    background: #fff;
+    color: #000;
+    padding: 0.2rem 0.5rem;
+    border: 0.1rem solid #000;
+    border-radius: 0.2rem;
+    transition: 0.5s ease;
+
+    :hover {
+      color: #fff;
+      background: #000;
+      border: 0.1rem solid #fff;
+    }
+  }
+`
