@@ -5,7 +5,7 @@ import { faArrowUp } from '@fortawesome/free-solid-svg-icons'
 import { faArrowDown } from '@fortawesome/free-solid-svg-icons'
 import styled from 'styled-components'
 
-const Answer = () => {
+const Answer = ({ answer }) => {
   const [score, setScore] = useState(0)
 
   const sendScoreToApi = async () => {
@@ -17,15 +17,15 @@ const Answer = () => {
   return (
     <AnswerSection>
       <div>
-        <button onClick={(() => setScore(score + 1), sendScoreToApi())}>
+        <button onClick={(() => setScore(score + 1), { sendScoreToApi })}>
           <FontAwesomeIcon icon={faArrowUp} />
         </button>
         <p>{answer.score}</p>
-        <button onClick={(() => setScore(score - 1), sendScoreToApi())}>
+        <button onClick={(() => setScore(score - 1), { sendScoreToApi })}>
           <FontAwesomeIcon icon={faArrowDown} />
         </button>
       </div>
-      <p>{question.content}</p>
+      <p>{answer.content}</p>
     </AnswerSection>
   )
 }

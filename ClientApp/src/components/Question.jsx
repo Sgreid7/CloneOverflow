@@ -4,6 +4,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faArrowUp } from '@fortawesome/free-solid-svg-icons'
 import { faArrowDown } from '@fortawesome/free-solid-svg-icons'
 import styled from 'styled-components'
+import Answer from './Answer'
 
 const Question = ({ question }) => {
   const [score, setScore] = useState(0)
@@ -15,19 +16,33 @@ const Question = ({ question }) => {
   }
 
   return (
-    <QuestionSection>
-      <div>
-        <button onClick={(() => setScore(score + 1), { sendScoreToApi })}>
-          <FontAwesomeIcon icon={faArrowUp} />
-        </button>
-        <p>{question.score}</p>
-        <button onClick={(() => setScore(score - 1), { sendScoreToApi })}>
-          <FontAwesomeIcon icon={faArrowDown} />
-        </button>
-      </div>
-      <h2>{question.title}</h2>
-      <p>{question.content}</p>
-    </QuestionSection>
+    <>
+      <QuestionSection>
+        <div>
+          <button onClick={(() => setScore(score + 1), { sendScoreToApi })}>
+            <FontAwesomeIcon icon={faArrowUp} />
+          </button>
+          <p>{question.score}</p>
+          <button onClick={(() => setScore(score - 1), { sendScoreToApi })}>
+            <FontAwesomeIcon icon={faArrowDown} />
+          </button>
+        </div>
+        <h2>Q: {question.title}</h2>
+        <p>Asked: {question.datecreated}</p>
+        <p>{question.content}</p>
+      </QuestionSection>
+
+      <h2>Answers</h2>
+      <ul>
+        {question.answers.map(answer => {
+          return (
+            <li>
+              <Answer answer={answer} />
+            </li>
+          )
+        })}
+      </ul>
+    </>
   )
 }
 
