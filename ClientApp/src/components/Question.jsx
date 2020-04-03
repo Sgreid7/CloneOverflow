@@ -110,7 +110,6 @@ const AnswerSection = styled.section`
 
   ul {
     list-style: none;
-    /* display: flex; */
     flex-direction: column;
     padding: 0;
     width: 100%;
