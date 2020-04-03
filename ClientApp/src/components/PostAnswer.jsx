@@ -17,12 +17,6 @@ const PostAnswer = () => {
 export default PostAnswer
 
 const AnswerField = styled.section`
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  margin: 1rem;
-
   textarea {
     width: 100%;
     margin-bottom: 0.5rem;
@@ -36,6 +30,7 @@ const AnswerField = styled.section`
     background: #fff;
     color: #000;
     padding: 0.2rem 0.5rem;
+    margin-bottom: 1rem;
     border: 0.1rem solid #000;
     border-radius: 0.2rem;
     transition: 0.5s ease;
