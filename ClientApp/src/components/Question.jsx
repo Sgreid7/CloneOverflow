@@ -24,12 +24,12 @@ const Question = ({ question }) => {
       </header>
       <QuestionSection>
         <div>
-          <button onClick={(() => setScore(score + 1), { sendScoreToApi })}>
+          <button onClick={() => setScore(score + 1)}>
             {/* <FontAwesomeIcon icon={faArrowUp} /> */}
             &#x25B2;
           </button>
-          <p>{question.score}</p>
-          <button onClick={(() => setScore(score - 1), { sendScoreToApi })}>
+          <p>{score}</p>
+          <button onClick={() => setScore(score - 1)}>
             {/* <FontAwesomeIcon icon={faArrowDown} /> */}
             &#x25BC;
           </button>
@@ -105,12 +105,11 @@ const Header = styled.h2`
 `
 
 const AnswerSection = styled.section`
-  margin: 1rem 0;
+  margin: 0;
   display: flex;
 
   ul {
     list-style: none;
-    /* display: flex; */
     flex-direction: column;
     padding: 0;
     width: 100%;
@@ -118,7 +117,7 @@ const AnswerSection = styled.section`
 
   li {
     display: flex;
-    margin: 1rem 0;
+    margin: 0.5rem 0;
     border-bottom: 0.1rem solid #696969;
 
     > div {

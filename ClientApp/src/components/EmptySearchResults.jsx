@@ -38,8 +38,6 @@ const EmptySection = styled.section`
       background: #000;
       color: #fff;
       border: 0.1rem solid #fff;
-      transform: translateY(-0.3rem);
-      box-shadow: 0 0.3rem 0.3rem #d3d3d3;
     }
   }
 `
