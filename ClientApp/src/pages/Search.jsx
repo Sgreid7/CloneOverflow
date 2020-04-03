@@ -74,5 +74,9 @@ const SearchSection = styled.section`
       background: #000;
       border: 0.1rem solid #fff;
     }
+
+    :focus {
+      outline: none;
+    }
   }
 `
