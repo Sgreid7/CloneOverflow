@@ -110,13 +110,13 @@ const Header = styled.h2`
   margin: 0;
   padding-bottom: 0.5rem;
 `
-
 const AnswerSection = styled.section`
   margin: 0;
   display: flex;
 
   ul {
     list-style: none;
+    display: flex;
     flex-direction: column;
     padding: 0;
     width: 100%;

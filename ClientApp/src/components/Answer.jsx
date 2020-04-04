@@ -29,7 +29,7 @@ const Answer = ({ answer }) => {
         <button
           onClick={() => {
             setScore(score - 1)
-            answer.scoreanswe--
+            answer.score--
             sendScoreToApi()
           }}
         >
@@ -37,7 +37,7 @@ const Answer = ({ answer }) => {
           &#x25BC;
         </button>
       </div>
-      <p>{answer.content}</p>
+      <Content>{answer.content}</Content>
     </AnswerSection>
   )
 }
@@ -45,5 +45,21 @@ const Answer = ({ answer }) => {
 export default Answer
 
 const AnswerSection = styled.section`
-  border: 0.1rem solid #696969;
+  display: flex;
+
+  div {
+    margin: 1rem 0;
+    align-items: center;
+  }
+
+  p {
+    margin: 0.2rem;
+    text-align: center;
+  }
+`
+
+const Content = styled.section`
+  display: flex;
+  flex-direction: column;
+  margin: 1rem;
 `

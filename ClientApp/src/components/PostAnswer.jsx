@@ -10,7 +10,7 @@ const PostAnswer = ({ someMethod, question }) => {
       questionId: question.id,
       content: answer,
     })
-    console.log(resp)
+    // console.log(resp)
     someMethod()
     setAnswer('')
   }
