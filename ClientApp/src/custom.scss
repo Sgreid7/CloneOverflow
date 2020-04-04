@@ -31,6 +31,7 @@ body {
 .invalid-inputs {
   color: red;
 }
+
 .question-list ul li {
   border-top: 2px solid rgb(70, 79, 88);
   border-left: 2px solid rgb(70, 79, 88);
@@ -63,4 +64,8 @@ body {
 .question-list ul li section h3.title {
   color: #0064bd;
   padding-bottom: 0.5rem;
+}
+
+.vote-button:hover {
+  cursor: pointer;
 }

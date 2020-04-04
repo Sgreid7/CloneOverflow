@@ -16,7 +16,7 @@ const Question = ({ question }) => {
       const resp = await axios.get(
         `/api/search/answer?searchTerm=${question.id}`
       )
-      console.log(resp.data)
+      // console.log(resp.data)
       setAnswers(resp.data)
     } else {
       setAnswers([])
@@ -39,27 +39,27 @@ const Question = ({ question }) => {
       </header>
       <QuestionSection>
         <div>
-          <button
+          <FontAwesomeIcon
+            icon={faArrowUp}
+            size="lg"
+            className="vote-button"
             onClick={() => {
               setScore(score + 1)
               question.score++
               sendScoreToApi()
             }}
-          >
-            <FontAwesomeIcon icon={faArrowUp} />
-            {/* &#x25B2; */}
-          </button>
+          />
           <p>{score}</p>
-          <button
+          <FontAwesomeIcon
+            icon={faArrowDown}
+            size="lg"
+            className="vote-button"
             onClick={() => {
               setScore(score - 1)
               question.score--
               sendScoreToApi()
             }}
-          >
-            <FontAwesomeIcon icon={faArrowDown} />
-            {/* &#x25BC; */}
-          </button>
+          />
         </div>
         <Content>
           <p>{question.content}</p>

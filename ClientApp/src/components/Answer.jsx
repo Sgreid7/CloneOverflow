@@ -15,27 +15,27 @@ const Answer = ({ answer }) => {
   return (
     <AnswerSection>
       <div>
-        <button
+        <FontAwesomeIcon
+          icon={faArrowUp}
+          size="lg"
           onClick={() => {
             setScore(score + 1)
             answer.score++
             sendScoreToApi()
           }}
-        >
-          <FontAwesomeIcon icon={faArrowUp} />
-          {/* &#x25B2; */}
-        </button>
+          className="vote-button"
+        />
         <p>{score}</p>
-        <button
+        <FontAwesomeIcon
+          icon={faArrowDown}
+          size="lg"
           onClick={() => {
             setScore(score - 1)
             answer.score--
             sendScoreToApi()
           }}
-        >
-          <FontAwesomeIcon icon={faArrowDown} />
-          {/* &#x25BC; */}
-        </button>
+          className="vote-button"
+        />
       </div>
       <Content>{answer.content}</Content>
     </AnswerSection>
