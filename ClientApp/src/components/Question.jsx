@@ -8,12 +8,11 @@ import Answer from './Answer'
 import PostAnswer from './PostAnswer'
 
 const Question = ({ question }) => {
-  const [score, setScore] = useState(0)
+  const [score, setScore] = useState(question.score)
 
   const sendScoreToApi = async () => {
-    const resp = await axios.post(`/api/question/${question.id}/score`, {
-      score: score,
-    })
+    question.score++
+    const resp = await axios.put(`/api/question/${question.id}`, question)
   }
 
   return (
