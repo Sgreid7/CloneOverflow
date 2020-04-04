@@ -13,7 +13,7 @@ const Question = ({ question }) => {
 
   const searchAnswers = async () => {
     if (question.id) {
-      const resp = await axios.get(`/api/search/answer/${question.id}`)
+      const resp = await axios.get(`/api/search/answer?searchTerm=5`)
       // console.log(resp.data)
       setAnswers(resp.data)
     } else {

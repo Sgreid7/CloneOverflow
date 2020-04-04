@@ -23,18 +23,20 @@ namespace CloneOverflow.Controllers
 
         // GET: api/search/question
         [HttpGet("question")]
-        public async Task<ActionResult<Answer>> SearchQuestions(string searchTerm)
+        public async Task<ActionResult> SearchQuestions(string searchTerm)
         {
             var results = _context.Questions.Where(q => q.Content.ToLower().Contains(searchTerm.ToLower()) || q.Title.ToLower().Contains(searchTerm.ToLower()));
             return Ok(await results.ToListAsync());
         }
 
-        // GET: api/search/question
-        [HttpGet("answers/{questionId}")]
-        public async Task<ActionResult<Answer>> SearchQuestions(int questionId)
+        // GET: api/search/answer
+        [HttpGet("answer")]
+        public async Task<ActionResult> SearchAnswers(int searchTerm)
         {
-            var results = _context.Answers.Where(a => a.QuestionId == questionId);
+            var results = _context.Answers.Where(a => a.Id == searchTerm);
             return Ok(await results.ToListAsync());
         }
+
+
     }
 }
