@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import styled from 'styled-components'
 import axios from 'axios'
 
-const PostAnswer = ({ question }) => {
+const PostAnswer = ({ someMethod, question }) => {
   const [answer, setAnswer] = useState('')
 
   const sendAnswerToApi = async () => {
@@ -11,6 +11,7 @@ const PostAnswer = ({ question }) => {
       content: answer,
     })
     console.log(resp)
+    someMethod()
   }
 
   return (

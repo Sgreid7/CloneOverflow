@@ -76,7 +76,7 @@ const Question = ({ question }) => {
           })}
         </ul>
       </AnswerSection>
-      <PostAnswer question={question} />
+      <PostAnswer someMethod={searchAnswers} question={question} />
     </>
   )
 }
