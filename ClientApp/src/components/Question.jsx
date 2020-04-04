@@ -91,7 +91,7 @@ const Question = ({ question }) => {
           })}
         </ul>
       </AnswerSection>
-      <PostAnswer />
+      <PostAnswer question={question} />
     </>
   )
 }
