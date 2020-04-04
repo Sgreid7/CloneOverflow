@@ -17,14 +17,24 @@ const Answer = ({ answer }) => {
   return (
     <AnswerSection>
       <div>
-        <button onClick={(() => setScore(score + 1), { sendScoreToApi })}>
+        <button
+          onClick={() => {
+            setScore(score + 1)
+            sendScoreToApi()
+          }}
+        >
           {/* <FontAwesomeIcon icon={faArrowUp} /> */}
-          upvote
+          &#x25B2;
         </button>
-        <p>{answer.score}</p>
-        <button onClick={(() => setScore(score - 1), { sendScoreToApi })}>
+        <p>{score}</p>
+        <button
+          onClick={() => {
+            setScore(score - 1)
+            sendScoreToApi()
+          }}
+        >
           {/* <FontAwesomeIcon icon={faArrowDown} /> */}
-          downvote
+          &#x25BC;
         </button>
       </div>
       <p>{answer.content}</p>
