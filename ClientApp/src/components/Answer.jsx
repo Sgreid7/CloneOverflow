@@ -1,8 +1,8 @@
 import React, { useState } from 'react'
 import axios from 'axios'
-// import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-// import { faArrowUp } from '@fortawesome/free-solid-svg-icons'
-// import { faArrowDown } from '@fortawesome/free-solid-svg-icons'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faArrowUp } from '@fortawesome/free-solid-svg-icons'
+import { faArrowDown } from '@fortawesome/free-solid-svg-icons'
 import styled from 'styled-components'
 
 const Answer = ({ answer }) => {
@@ -22,8 +22,8 @@ const Answer = ({ answer }) => {
             sendScoreToApi()
           }}
         >
-          {/* <FontAwesomeIcon icon={faArrowUp} /> */}
-          &#x25B2;
+          <FontAwesomeIcon icon={faArrowUp} />
+          {/* &#x25B2; */}
         </button>
         <p>{score}</p>
         <button
@@ -33,8 +33,8 @@ const Answer = ({ answer }) => {
             sendScoreToApi()
           }}
         >
-          {/* <FontAwesomeIcon icon={faArrowDown} /> */}
-          &#x25BC;
+          <FontAwesomeIcon icon={faArrowDown} />
+          {/* &#x25BC; */}
         </button>
       </div>
       <Content>{answer.content}</Content>
