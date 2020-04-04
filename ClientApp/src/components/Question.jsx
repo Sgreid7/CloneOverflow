@@ -24,12 +24,22 @@ const Question = ({ question }) => {
       </header>
       <QuestionSection>
         <div>
-          <button onClick={() => setScore(score + 1)}>
+          <button
+            onClick={() => {
+              setScore(score + 1)
+              sendScoreToApi()
+            }}
+          >
             {/* <FontAwesomeIcon icon={faArrowUp} /> */}
             &#x25B2;
           </button>
           <p>{score}</p>
-          <button onClick={() => setScore(score - 1)}>
+          <button
+            onClick={() => {
+              setScore(score - 1)
+              sendScoreToApi()
+            }}
+          >
             {/* <FontAwesomeIcon icon={faArrowDown} /> */}
             &#x25BC;
           </button>
