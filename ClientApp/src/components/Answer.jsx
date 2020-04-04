@@ -9,7 +9,6 @@ const Answer = ({ answer }) => {
   const [score, setScore] = useState(answer.score)
 
   const sendScoreToApi = async () => {
-    answer.score++
     const resp = await axios.put(`/api/answer/${answer.id}`, answer)
   }
 
@@ -19,6 +18,7 @@ const Answer = ({ answer }) => {
         <button
           onClick={() => {
             setScore(score + 1)
+            answer.score++
             sendScoreToApi()
           }}
         >
@@ -29,6 +29,7 @@ const Answer = ({ answer }) => {
         <button
           onClick={() => {
             setScore(score - 1)
+            answer.scoreanswe--
             sendScoreToApi()
           }}
         >
