@@ -28,5 +28,13 @@ namespace CloneOverflow.Controllers
             var results = _context.Questions.Where(q => q.Content.ToLower().Contains(searchTerm.ToLower()) || q.Title.ToLower().Contains(searchTerm.ToLower()));
             return Ok(await results.ToListAsync());
         }
+
+        // GET: api/search/question
+        [HttpGet("answers/{questionId}")]
+        public async Task<ActionResult<Answer>> SearchQuestions(int questionId)
+        {
+            var results = _context.Answers.Where(a => a.QuestionId == questionId);
+            return Ok(await results.ToListAsync());
+        }
     }
 }

@@ -6,12 +6,11 @@ import axios from 'axios'
 import styled from 'styled-components'
 
 const Answer = ({ answer }) => {
-  const [score, setScore] = useState(0)
+  const [score, setScore] = useState(answer.score)
 
   const sendScoreToApi = async () => {
-    const resp = await axios.post(`/api/answer/${answer.id}/score`, {
-      score: score,
-    })
+    answer.score++
+    const resp = await axios.put(`/api/answer/${answer.id}`, answer)
   }
 
   return (

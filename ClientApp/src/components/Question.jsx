@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import axios from 'axios'
 // import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 // import { faArrowUp } from '@fortawesome/free-solid-svg-icons'
@@ -9,11 +9,26 @@ import PostAnswer from './PostAnswer'
 
 const Question = ({ question }) => {
   const [score, setScore] = useState(question.score)
+  const [answers, setAnswers] = useState([])
+
+  const searchAnswers = async () => {
+    if (question.id) {
+      const resp = await axios.get(`/api/search/answer/${question.id}`)
+      // console.log(resp.data)
+      setAnswers(resp.data)
+    } else {
+      setAnswers([])
+    }
+  }
 
   const sendScoreToApi = async () => {
     question.score++
     const resp = await axios.put(`/api/question/${question.id}`, question)
   }
+
+  useEffect(() => {
+    searchAnswers()
+  }, [])
 
   return (
     <>
@@ -58,26 +73,22 @@ const Question = ({ question }) => {
             </li>
           )
         })} */}
-          <li>
-            <div>
-              <button>&#x25B2;</button>
-              <p>12</p>
-              <button>&#x25BC;</button>
-            </div>
-            <Content>
-              <p>This is the first answer</p>
-            </Content>
-          </li>
-          <li>
-            <div>
-              <button>&#x25B2;</button>
-              <p>4</p>
-              <button>&#x25BC;</button>
-            </div>
-            <Content>
-              <p>This is the second answer</p>
-            </Content>
-          </li>
+          {answers.map(answer => {
+            return (
+              <li>
+                <section className="votes-and-answers-column">
+                  <div className="votes">
+                    {answer.score}
+                    <p>votes</p>
+                  </div>
+                </section>
+                <section className="title-and-content-column">
+                  <h3 className="title">A: {answer.title}</h3>
+                  <p className="content">{answer.content}</p>
+                </section>
+              </li>
+            )
+          })}
         </ul>
       </AnswerSection>
       <PostAnswer />
