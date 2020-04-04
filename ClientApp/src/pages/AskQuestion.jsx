@@ -22,7 +22,7 @@ const AskQuestion = () => {
   }
 
   const addQuestionToApi = async () => {
-    if (question.name && question.content) {
+    if (question.title && question.content) {
       const resp = await axios.post('/api/question', question)
       if (resp.status === 201) {
         setWasSuccessfullyPosted({
