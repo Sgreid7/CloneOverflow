@@ -2,9 +2,11 @@ import React, { useState } from 'react'
 import axios from 'axios'
 import { Redirect } from 'react-router-dom'
 import styled from 'styled-components'
+import { NONAME } from 'dns'
 
 const AskQuestion = () => {
   const [question, setQuestion] = useState({})
+  const [invalid, setInvalid] = useState('none')
   const [wasSuccessfullyPosted, setWasSuccessfullyPosted] = useState({
     shouldRedirect: false,
     questionInformation: {},
@@ -20,14 +22,18 @@ const AskQuestion = () => {
   }
 
   const addQuestionToApi = async () => {
-    const resp = await axios.post('/api/question', question)
-    if (resp.status === 201) {
-      setWasSuccessfullyPosted({
-        shouldRedirect: true,
-        questionInformation: resp.data,
-      })
+    if (question.name && question.content) {
+      const resp = await axios.post('/api/question', question)
+      if (resp.status === 201) {
+        setWasSuccessfullyPosted({
+          shouldRedirect: true,
+          questionInformation: resp.data,
+        })
+      } else {
+        console.log(resp.status)
+      }
     } else {
-      // do something here
+      setInvalid('inline')
     }
   }
 
@@ -46,7 +52,12 @@ const AskQuestion = () => {
         <Header>Ask A Question</Header>
         <MainContent>
           <section>
-            <label htmlFor="title">Title</label>
+            <label htmlFor="title">
+              Title
+              <span style={{ display: invalid }} className="invalid-inputs">
+                *
+              </span>
+            </label>
             <input
               type="text"
               placeholder="Be specific and imagine you're asking a question to another person"
@@ -55,7 +66,12 @@ const AskQuestion = () => {
             />
           </section>
           <section>
-            <label htmlFor="description">Description</label>
+            <label htmlFor="description">
+              Description
+              <span style={{ display: invalid }} className="invalid-inputs">
+                *
+              </span>
+            </label>
             <textarea
               name="content"
               placeholder="Include all the information someone would need to answer your
@@ -65,6 +81,9 @@ const AskQuestion = () => {
               onChange={updateQuestionInfo}
             ></textarea>
           </section>
+          <div style={{ display: invalid }} className="invalid-inputs">
+            *Both title and description must be filled in
+          </div>
           <div>
             <button onClick={addQuestionToApi}>Add Question</button>
           </div>
