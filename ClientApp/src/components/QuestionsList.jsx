@@ -18,7 +18,7 @@ const QuestionsList = ({ results }) => {
               </div>
             </section>
             <section className="title-and-content-column">
-              <Link to="/">
+              <Link to={`/question/${question.id}`}>
                 <h3 className="title">Q: {question.title}</h3>
               </Link>
               <p className="content">{question.content}</p>
