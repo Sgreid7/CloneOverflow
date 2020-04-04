@@ -1,14 +1,30 @@
-import React from 'react'
+import React, { useState } from 'react'
 import styled from 'styled-components'
 import axios from 'axios'
 
-const PostAnswer = () => {
+const PostAnswer = ({ question }) => {
+  const [answer, setAnswer] = useState('')
+
+  const sendAnswerToApi = async () => {
+    const resp = await axios.post(`api/answer`, {
+      questionId: question.id,
+      content: answer,
+    })
+    console.log(resp)
+  }
+
   return (
     <AnswerField>
       <h2>Your Answer</h2>
-      <textarea name="content" cols="30" rows="5"></textarea>
+      <textarea
+        name="content"
+        cols="30"
+        rows="5"
+        value={answer}
+        onChange={e => setAnswer(e.target.value)}
+      ></textarea>
       <div>
-        <button>Post Your Answer</button>
+        <button onClick={sendAnswerToApi}>Post Your Answer</button>
       </div>
     </AnswerField>
   )

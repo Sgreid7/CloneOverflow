@@ -81,7 +81,7 @@ const Question = ({ question }) => {
           </li>
         </ul>
       </AnswerSection>
-      <PostAnswer />
+      <PostAnswer question={question} />
     </>
   )
 }
