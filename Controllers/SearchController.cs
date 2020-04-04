@@ -33,7 +33,7 @@ namespace CloneOverflow.Controllers
         [HttpGet("answer")]
         public async Task<ActionResult> SearchAnswers(int searchTerm)
         {
-            var results = _context.Answers.Where(a => a.Id == searchTerm);
+            var results = _context.Answers.Where(a => a.QuestionId == searchTerm);
             return Ok(await results.ToListAsync());
         }
 

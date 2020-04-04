@@ -14,7 +14,7 @@ const Question = ({ question }) => {
   const searchAnswers = async () => {
     if (question.id) {
       const resp = await axios.get(`/api/search/answer?searchTerm=5`)
-      // console.log(resp.data)
+      console.log(resp.data)
       setAnswers(resp.data)
     } else {
       setAnswers([])
@@ -66,26 +66,10 @@ const Question = ({ question }) => {
       <Header>Answers</Header>
       <AnswerSection>
         <ul>
-          {/* {question.answers.map(answer => {
-          return (
-            <li>
-              <Answer answer={answer} />
-            </li>
-          )
-        })} */}
           {answers.map(answer => {
             return (
               <li>
-                <section className="votes-and-answers-column">
-                  <div className="votes">
-                    {answer.score}
-                    <p>votes</p>
-                  </div>
-                </section>
-                <section className="title-and-content-column">
-                  <h3 className="title">A: {answer.title}</h3>
-                  <p className="content">{answer.content}</p>
-                </section>
+                <Answer answer={answer} />
               </li>
             )
           })}
