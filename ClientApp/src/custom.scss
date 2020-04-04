@@ -2,11 +2,17 @@
 a {
   color: #0366d6;
 }
+
 p {
   margin: 0;
 }
+
 code {
   color: #e01a76;
+}
+
+body {
+  font-family: 'Montserrat', sans-serif;
 }
 
 .question-list {
@@ -41,6 +47,7 @@ code {
 .title-and-content-column {
   margin-left: 3rem;
 }
+
 .votes-and-answers-column {
   text-align: center;
 }
