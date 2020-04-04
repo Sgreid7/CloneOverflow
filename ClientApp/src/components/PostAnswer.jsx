@@ -12,6 +12,7 @@ const PostAnswer = ({ someMethod, question }) => {
     })
     console.log(resp)
     someMethod()
+    setAnswer('')
   }
 
   return (
