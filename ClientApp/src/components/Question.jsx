@@ -19,7 +19,7 @@ const Question = ({ question }) => {
     <>
       <header>
         <h2>Q: {question.title}</h2>
-        <p>Asked: 4/2/2020</p>
+        <p>Asked: {question.dateCreated.substring(0, 10)}</p>
       </header>
       <QuestionSection>
         <div>
