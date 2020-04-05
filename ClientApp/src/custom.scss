@@ -33,6 +33,7 @@ body {
 }
 
 .question-list ul li {
+  margin-top: 3rem;
   border-top: 2px solid rgb(70, 79, 88);
   border-left: 2px solid rgb(70, 79, 88);
   padding: 1.5rem;
@@ -51,10 +52,8 @@ body {
 
 .votes-and-answers-column {
   text-align: center;
-}
-
-.votes-and-answers-column .answers {
-  padding-top: 1rem;
+  margin-top: 0.5rem;
+  font-weight: bold;
 }
 
 .question-list ul li section p.content {

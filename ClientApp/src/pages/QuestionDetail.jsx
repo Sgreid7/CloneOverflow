@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from 'react'
 import axios from 'axios'
-import Answer from '../components/Answer'
 import Question from '../components/Question'
 import Loading from '../components/Loading'
 

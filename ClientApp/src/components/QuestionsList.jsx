@@ -6,17 +6,11 @@ const QuestionsList = ({ results }) => {
     <ul>
       {results.map(question => {
         return (
-          <li>
-            <section className="votes-and-answers-column">
-              <div className="votes">
-                {question.score}
-                <p>votes</p>
-              </div>
-              <div className="answers">
-                {question.answer}
-                <p>answers</p>
-              </div>
-            </section>
+          <li key={question.id}>
+            <div className="votes-and-answers-column">
+              {question.score}
+              <p>votes</p>
+            </div>
             <section className="title-and-content-column">
               <Link to={`/question/${question.id}`}>
                 <h3 className="title">Q: {question.title}</h3>

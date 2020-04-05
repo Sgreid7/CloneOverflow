@@ -13,7 +13,7 @@ const Search = () => {
       const resp = await axios.get(
         `/api/search/question?searchTerm=${searchTerm}`
       )
-      // console.log(resp.data)
+      console.log(resp.data)
       setResults(resp.data)
     } else {
       setResults([])
